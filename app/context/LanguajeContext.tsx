@@ -10,11 +10,12 @@ interface Translations {
     itemAbout: string;
     itemProyects: string;
     itemContact: string;
+    titleAbout: string;
 }
 
 interface LanguageContextType {
     language: Language;
-    translate: (key: keyof Translations) => string; // Aseguramos que las claves sean del tipo Translations
+    translate: (key: keyof Translations) => string;
     toggleLanguage: () => void;
 }
 

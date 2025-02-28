@@ -49,9 +49,10 @@ export default function Navbar({ className }: NavbarProps) {
           </SheetTrigger>
           <SheetContent side="top">
             <nav className="flex flex-col space-y-4 mt-6">
-              <Button variant="ghost" className="w-full">Inicio</Button>
-              <Button variant="ghost" className="w-full">Proyectos</Button>
-              <Button variant="ghost" className="w-full">Contacto</Button>
+              <Button variant="ghost" className="w-full">{translate('itemHome')}</Button>
+              <Button variant="ghost" className="w-full">{translate('itemAbout')}</Button>
+              <Button variant="ghost" className="w-full">{translate('itemProyects')}</Button>
+              <Button variant="ghost" className="w-full">{translate('itemContact')}</Button>
             </nav>
           </SheetContent>
         </Sheet>
