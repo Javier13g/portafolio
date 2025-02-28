@@ -5,7 +5,9 @@
         "itemProyects": "Proyects",
         "itemContact": "Contact",
         "intro": "Hi, I'm Abdiel Cuevas",
-        "description": "A results-oriented developer who creates and manages websites and web applications that lead to the success of the overall product ensuring that it is built on a solid foundation to ensure its quality in the future."
+        "description": "A results-oriented developer who creates and manages websites and web applications that lead to the success of the overall product ensuring that it is built on a solid foundation to ensure its quality in the future.",
+        "titleAbout": "My Skills"
+        
     },
     "es": {
         "itemHome": "Inicio",
@@ -13,6 +15,7 @@
         "itemProyects": "Proyectos",
         "itemContact": "Contacto",
         "intro": "Hola, soy Abdiel Cuevas",
-        "description": "Un desarrollador orientado a resultados que crea y gestiona sitios web y aplicaciones web que conducen al éxito del producto en general, asegurando que se construya sobre una base sólida para garantizar su calidad en el futuro."
+        "description": "Un desarrollador orientado a resultados que crea y gestiona sitios web y aplicaciones web que conducen al éxito del producto en general, asegurando que se construya sobre una base sólida para garantizar su calidad en el futuro.",
+        "titleAbout": "Mis Habilidades"
     }
 }
