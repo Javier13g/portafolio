@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
+import { useTheme } from "next-themes"; // Importa useTheme de next-themes
 
 const dataLanguaje = [
     { name: 'Javascript', value: 62.3 },
@@ -26,10 +27,11 @@ const dataBase = [
 
 const normalizeName = (name: string) => {
     return name.toLowerCase().replace(/\s+/g, ''); // Elimina espacios y convierte a minúsculas
-  };
+};
 
 // Componente para renderizar la forma activa
 const renderActiveShape = (props: any) => {
+    const { theme } = useTheme();
     const RADIAN = Math.PI / 180;
     const {
         cx,
@@ -100,52 +102,54 @@ interface CustomActiveShapePieChartProps {
 }
 
 const CustomActiveShapePieChart: React.FC<CustomActiveShapePieChartProps> = ({ languageName }) => {
-    console.log("name", languageName)
+    const { theme } = useTheme();
     const [activeIndex, setActiveIndex] = useState(0);
     const [data, setData] = useState<{ name: string; value: number }[]>([]);
-    
+
     useEffect(() => {
         if (languageName) {
-          const normalizedLanguageName = normalizeName(languageName);
-    
-          // Busca en dataLanguaje
-          const languageIndex = dataLanguaje.findIndex((item) =>
-            normalizeName(item.name).includes(normalizedLanguageName),
-          );
-          if (languageIndex !== -1) {
-            setData(dataLanguaje);
-            setActiveIndex(languageIndex);
-            return;
-          }
-    
-          // Busca en dataWebFrameworksAndTechnologies
-          const frameworkIndex = dataWebFrameworksAndTechnologies.findIndex((item) =>
-            normalizeName(item.name).includes(normalizedLanguageName),
-          );
-          if (frameworkIndex !== -1) {
-            setData(dataWebFrameworksAndTechnologies);
-            setActiveIndex(frameworkIndex);
-            return;
-          }
-    
-          // Busca en dataBase
-          const databaseIndex = dataBase.findIndex((item) =>
-            normalizeName(item.name).includes(normalizedLanguageName),
-          );
-          if (databaseIndex !== -1) {
-            setData(dataBase);
-            setActiveIndex(databaseIndex);
-            return;
-          }
-    
-          // Si no se encuentra, se usa un conjunto de datos vacío
-          setData([]);
+            const normalizedLanguageName = normalizeName(languageName);
+
+            // Busca en dataLanguaje
+            const languageIndex = dataLanguaje.findIndex((item) =>
+                normalizeName(item.name).includes(normalizedLanguageName),
+            );
+            if (languageIndex !== -1) {
+                setData(dataLanguaje);
+                setActiveIndex(languageIndex);
+                return;
+            }
+
+            // Busca en dataWebFrameworksAndTechnologies
+            const frameworkIndex = dataWebFrameworksAndTechnologies.findIndex((item) =>
+                normalizeName(item.name).includes(normalizedLanguageName),
+            );
+            if (frameworkIndex !== -1) {
+                setData(dataWebFrameworksAndTechnologies);
+                setActiveIndex(frameworkIndex);
+                return;
+            }
+
+            // Busca en dataBase
+            const databaseIndex = dataBase.findIndex((item) =>
+                normalizeName(item.name).includes(normalizedLanguageName),
+            );
+            if (databaseIndex !== -1) {
+                setData(dataBase);
+                setActiveIndex(databaseIndex);
+                return;
+            }
+
+            // Si no se encuentra, se usa un conjunto de datos vacío
+            setData([]);
         }
-      }, [languageName]);
-      
+    }, [languageName]);
+
     const onPieEnter = (_, index) => {
         setActiveIndex(index);
     };
+
+    const textColor = theme === "dark" ? "#fff" : "#333";
 
     return (
         <ResponsiveContainer width="100%" height={400}>
@@ -158,7 +162,7 @@ const CustomActiveShapePieChart: React.FC<CustomActiveShapePieChartProps> = ({ l
                     cy="50%"
                     innerRadius={60}
                     outerRadius={80}
-                    fill="#8884d8"
+                    fill={textColor}
                     dataKey="value"
                     onMouseEnter={onPieEnter}
                 />
