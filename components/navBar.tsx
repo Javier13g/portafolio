@@ -1,10 +1,19 @@
 import { Contact, FolderGit2, House, Menu, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useLanguage } from "@/app/context/LanguajeContext";
 
-export default function Navbar() {
+interface NavbarProps {
+  className?: string;
+}
+
+
+export default function Navbar({ className }: NavbarProps) {
+  const { translate } = useLanguage();
   return (
-    <header className="fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-3xl bg-white dark:bg-black border border-gray-200 dark:border-white shadow-lg rounded-xl p-4">
+    <header
+      className={`${className} fixed top-4 left-1/2 transform -translate-x-1/2 w-[calc(100%-16px)] max-w-3xl px-4 sm:px-6 bg-white dark:bg-black border border-gray-200 dark:border-white shadow-lg rounded-xl p-4`}
+    >
       <div className="flex items-center justify-between">
         {/* Logo */}
         <div className="text-xl font-bold text-gray-800 dark:text-white">
@@ -15,20 +24,20 @@ export default function Navbar() {
         <nav className="hidden md:flex space-x-6">
           <Button variant="ghost" className="text-gray-700 dark:text-white">
             <House className="w-6 h-6" />
-            Home
-            </Button>
+            {translate('itemHome')}
+          </Button>
           <Button variant="ghost" className="text-gray-700 dark:text-white">
             <User className="w-6 h-6" />
-            About
-            </Button>
+            {translate('itemAbout')}
+          </Button>
           <Button variant="ghost" className="text-gray-700 dark:text-white">
             <FolderGit2 className="w-6 h-6" />
-            Proyects
-            </Button>
+            {translate('itemProyects')}
+          </Button>
           <Button variant="ghost" className="text-gray-700 dark:text-white">
             <Contact className="w-6 h-6" />
-            Contact
-            </Button>
+            {translate('itemContact')}
+          </Button>
         </nav>
 
         {/* Menú móvil */}
@@ -38,7 +47,7 @@ export default function Navbar() {
               <Menu className="text-gray-700 dark:text-white" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-64">
+          <SheetContent side="top">
             <nav className="flex flex-col space-y-4 mt-6">
               <Button variant="ghost" className="w-full">Inicio</Button>
               <Button variant="ghost" className="w-full">Proyectos</Button>
