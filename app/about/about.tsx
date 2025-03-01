@@ -3,14 +3,14 @@ import { useLanguage } from "../context/LanguajeContext";
 import { BlazorIcon, CsharpIcon, GitHubIcon, GitIcon, JavaScriptIcon, NestIcon, NetIcon, PostmanIcon, ReactIcon, SqlServerIcon, TypescriptIcon, VueIcon } from "../images/languagesIcons";
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
 import { useState } from "react";
-import CustomActiveShapePieChart from "@/components/CustomActiveShapePieChart";
+import { CustomActiveShapePieChart } from "@/components/CustomActiveShapePieChart";
+import { Link } from "@radix-ui/react-navigation-menu";
 
 export default function About() {
   const { translate } = useLanguage();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedTech, setSelectedTech] = useState<{ name: string; description: string } | null>(null);
 
-  // Datos de las tecnologías
   const technologies = [
     { name: "JavaScript", description: "JavaScript es un lenguaje de programación..." },
     { name: "TypeScript", description: "TypeScript es un superset de JavaScript..." },
@@ -26,7 +26,6 @@ export default function About() {
     { name: "SQL Server", description: "SQL Server es un sistema de gestión de bases de datos relacionales..." },
   ];
 
-  // Función para manejar el clic en un ícono
   const handleIconClick = (index: number) => {
     setSelectedTech(technologies[index]);
     setIsDrawerOpen(true);
@@ -65,6 +64,15 @@ export default function About() {
               {selectedTech && (
                 <DrawerDescription>
                   <CustomActiveShapePieChart languageName={selectedTech.name} />
+                </DrawerDescription>
+              )}
+            </DrawerDescription>
+            <DrawerDescription style={{ fontSize: "20px" }}>
+              {selectedTech && (
+                <DrawerDescription>
+                  <Link>
+                  Datos basados en el stackoverflow survey 2024
+                  </Link>
                 </DrawerDescription>
               )}
             </DrawerDescription>
