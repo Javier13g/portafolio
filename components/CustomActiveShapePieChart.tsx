@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
 import { useTheme } from "next-themes"; // Importa useTheme de next-themes
@@ -77,31 +78,43 @@ export const CustomActiveShapePieChart: React.FC<CustomActiveShapePieChartProps>
         }
     }, [languageName]);
 
-    const onPieEnter = (_, index) => {
+    const onPieEnter = (_: any, index: React.SetStateAction<number>) => {
         setActiveIndex(index);
     };
 
     const textColor = theme === "dark" ? "#fff" : "#333";
 
     return (
-        <ResponsiveContainer width="100%" height={400}>
-            <PieChart>
-                <Pie
-                    activeIndex={activeIndex}
-                    activeShape={(props: any) => renderActiveShape(props, textColor)}
-                    data={data}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={80}
-                    fill={textColor}
-                    dataKey="value"
-                    onMouseEnter={onPieEnter}
-                    stroke={theme === "dark" ? "#333" : "#fff"}
-                    strokeWidth={2}
-                />
-            </PieChart>
-        </ResponsiveContainer>
+        <>
+            <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                    <Pie
+                        activeIndex={activeIndex}
+                        activeShape={(props: any) => renderActiveShape(props, textColor)}
+                        data={data}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={80}
+                        fill={textColor}
+                        dataKey="value"
+                        onMouseEnter={onPieEnter}
+                        stroke={theme === "dark" ? "#333" : "#fff"}
+                        strokeWidth={2}
+                    />
+                </PieChart>
+            </ResponsiveContainer>
+            {data.length > 0 && (
+                <a
+                    className="text-gray-900 dark:text-white"
+                    href="https://survey.stackoverflow.co/2024/technology/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Datos basados en el Stack Overflow Survey 2024 según popularidad
+                </a>
+            )}
+        </>
     );
 };
 
