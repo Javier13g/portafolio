@@ -2,35 +2,107 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLanguage } from "../context/LanguajeContext";
 import { BlazorIcon, CsharpIcon, GitHubIcon, GitIcon, JavaScriptIcon, NestIcon, NetIcon, PostmanIcon, ReactIcon, SqlServerIcon, TypescriptIcon, VueIcon } from "../images/languagesIcons";
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } from "@/components/ui/drawer";
-import { useState } from "react";
-import CustomActiveShapePieChart from "@/components/CustomActiveShapePieChart";
+import { useEffect, useState } from "react";
+import { CustomActiveShapePieChart } from "@/components/CustomActiveShapePieChart";
 
 export default function About() {
   const { translate } = useLanguage();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [selectedTech, setSelectedTech] = useState<{ name: string; description: string } | null>(null);
+  const [selectedTech, setSelectedTech] = useState<{ name: string } | null>(null);
 
-  // Datos de las tecnologías
   const technologies = [
-    { name: "JavaScript", description: "JavaScript es un lenguaje de programación..." },
-    { name: "TypeScript", description: "TypeScript es un superset de JavaScript..." },
-    { name: "React", description: "React es una biblioteca de JavaScript para construir interfaces de usuario..." },
-    { name: "Vue", description: "Vue es un framework progresivo de JavaScript..." },
-    { name: "NestJS", description: "NestJS es un framework de Node.js para construir aplicaciones escalables..." },
-    { name: "C#", description: "C# es un lenguaje de programación desarrollado por Microsoft..." },
-    { name: ".NET", description: ".NET es un framework de desarrollo de software..." },
-    { name: "Blazor", description: "Blazor es un framework de desarrollo web de Microsoft..." },
-    { name: "Git", description: "Git es un sistema de control de versiones distribuido..." },
-    { name: "GitHub", description: "GitHub es una plataforma de desarrollo colaborativo..." },
-    { name: "Postman", description: "Postman es una herramienta para probar APIs..." },
-    { name: "SQL Server", description: "SQL Server es un sistema de gestión de bases de datos relacionales..." },
+    {
+      name: "JavaScript"
+    },
+    {
+      name: "TypeScript"
+    },
+    {
+      name: "React"
+    },
+    {
+      name: "Vue"
+    },
+    {
+      name: "NestJS"
+    },
+    {
+      name: "C#"
+    },
+    {
+      name: ".NET"
+    },
+    {
+      name: "Blazor"
+    },
+    {
+      name: "Git"
+    },
+    {
+      name: "GitHub"
+    },
+    {
+      name: "Postman"
+    },
+    {
+      name: "SQL Server"
+    }
   ];
 
-  // Función para manejar el clic en un ícono
   const handleIconClick = (index: number) => {
     setSelectedTech(technologies[index]);
     setIsDrawerOpen(true);
   };
+
+  const [dataDrawer, setDataDrawer] = useState("");
+
+  useEffect(() => {
+    if (selectedTech != undefined) {
+      switch (selectedTech.name) {
+        case "JavaScript":
+          setDataDrawer(translate('descriptionJavaScript'));
+          break;
+        case "TypeScript":
+          setDataDrawer(translate('descriptionTypeScript'));
+          break;
+        case "React":
+          setDataDrawer(translate('descriptionReact'));
+          break;
+        case "Vue":
+          setDataDrawer(translate('descriptionVue'));
+          break;
+        case "NestJS":
+          setDataDrawer(translate('descriptionNestJS'));
+          break;
+        case "C#":
+          setDataDrawer(translate('descriptionCSharp'));
+          break;
+        case ".NET":
+          setDataDrawer(translate('descriptionDotNet'));
+          break;
+        case "Blazor":
+          setDataDrawer(translate('descriptionBlazor'));
+          break;
+        case "Git":
+          setDataDrawer(translate('descriptionGit'));
+          break;
+        case "GitHub":
+          setDataDrawer(translate('descriptionGitHub'));
+          break;
+        case "Postman":
+          setDataDrawer(translate('descriptionPostman'));
+          break;
+
+        case "SQL Server":
+          setDataDrawer(translate('descriptionSQLServer'));
+          break;
+
+        default:
+          break;
+      }
+    }
+  }, [selectedTech, translate])
+
   return (
     <section id="about" className="py-16 flex justify-center">
       <Card className="w-full max-w-3xl bg-white dark:bg-black border dark:border-white shadow-md">
@@ -59,7 +131,9 @@ export default function About() {
           <DrawerHeader style={{ textAlign: "center" }}>
             <DrawerTitle style={{ fontSize: "30px" }}>{selectedTech?.name}</DrawerTitle>
             <DrawerDescription style={{ fontSize: "20px" }}>
-              {selectedTech?.description}
+              {dataDrawer && (
+                dataDrawer
+              )}
             </DrawerDescription>
             <DrawerDescription>
               {selectedTech && (

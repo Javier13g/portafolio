@@ -11,6 +11,18 @@ interface Translations {
     itemProyects: string;
     itemContact: string;
     titleAbout: string;
+    descriptionJavaScript: string;
+    descriptionTypeScript: string;
+    descriptionReact: string;
+    descriptionVue: string;
+    descriptionNestJS: string;
+    descriptionCSharp: string;
+    descriptionDotNet: string;
+    descriptionBlazor: string;
+    descriptionGit: string;
+    descriptionGitHub: string;
+    descriptionPostman: string;
+    descriptionSQLServer: string;
 }
 
 interface LanguageContextType {
@@ -33,9 +45,9 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     const [language, setLanguage] = useState<Language>('en');
 
     const translate = (key: keyof Translations) => {
-        return translations[language][key] || key; // Ahora TypeScript sabe que las claves existen
+        const langData = translations[language] as Translations;
+        return langData[key] ?? key;
     };
-
     const toggleLanguage = () => {
         setLanguage(prevLang => (prevLang === 'en' ? 'es' : 'en'));
     };

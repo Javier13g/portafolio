@@ -6,8 +6,19 @@
         "itemContact": "Contact",
         "intro": "Hi, I'm Abdiel Cuevas",
         "description": "A results-oriented developer who creates and manages websites and web applications that lead to the success of the overall product ensuring that it is built on a solid foundation to ensure its quality in the future.",
-        "titleAbout": "My Skills"
-        
+        "titleAbout": "My Skills",
+        "descriptionJavaScript": "JavaScript is a widely-used programming language for web development. It enables interactivity on web pages, DOM manipulation, asynchronous requests, and works with modern frameworks like React or Vue. It is an interpreted, dynamic, and cross-platform language.",
+        "descriptionTypeScript": "TypeScript is a superset of JavaScript that adds optional static typing. Developed by Microsoft, it helps catch errors during development and improves code maintainability. It is particularly useful in large projects and compiles to plain JavaScript.",
+        "descriptionReact": "React is a JavaScript library developed by Facebook for building interactive and reusable user interfaces. It uses a component-based approach and a virtual DOM to optimize performance. It is widely used in single-page applications (SPAs).",
+        "descriptionVue": "Vue is a progressive JavaScript framework designed to be adoptable and easy to integrate into existing projects. It offers an intuitive template system, two-way data binding, and an ecosystem of tools like Vuex for state management and Vue Router for routing.",
+        "descriptionNestJS": "NestJS is a Node.js framework inspired by Angular, enabling the development of scalable and efficient backend applications. It uses TypeScript by default and provides a modular architecture, support for microservices, and a wide range of tools for building robust APIs.",
+        "descriptionCSharp": "C# is a programming language developed by Microsoft, widely used for desktop, web, and mobile application development. It is part of the .NET ecosystem and is known for its clear syntax, object-oriented approach, and support for asynchronous programming.",
+        "description.NET": ".NET is a software development framework created by Microsoft. It supports multiple languages like C#, F#, and Visual Basic, and is used to build web applications, services, desktop applications, and games. It is cross-platform and offers optimized performance.",
+        "descriptionBlazor": "Blazor is a web development framework by Microsoft that allows building interactive applications using C# instead of JavaScript. It can run on the server (Blazor Server) or on the client (Blazor WebAssembly), offering a modern alternative for frontend development.",
+        "descriptionGit": "Git is a widely-used distributed version control system for software development. It allows developers to track code changes, collaborate in teams, and manage branches efficiently. It is the foundation of platforms like GitHub and GitLab.",
+        "descriptionGitHub": "GitHub is a collaborative development platform based on Git. It provides tools for hosting code repositories, reviewing changes, managing projects, and team collaboration. It is widely used in the open-source community and for private projects.",
+        "descriptionPostman": "Postman is a popular tool for testing and documenting APIs. It allows sending HTTP requests, automating tests, simulating responses, and team collaboration. It is essential for developers working with web services and RESTful APIs.",
+        "descriptionSQLServer": "SQL Server is a relational database management system developed by Microsoft. It offers high performance, advanced security, and tools for data analysis. It is widely used in enterprise applications and critical database environments."
     },
     "es": {
         "itemHome": "Inicio",
@@ -16,6 +27,18 @@
         "itemContact": "Contacto",
         "intro": "Hola, soy Abdiel Cuevas",
         "description": "Un desarrollador orientado a resultados que crea y gestiona sitios web y aplicaciones web que conducen al éxito del producto en general, asegurando que se construya sobre una base sólida para garantizar su calidad en el futuro.",
-        "titleAbout": "Mis Habilidades"
+        "titleAbout": "Mis Habilidades",
+        "descriptionJavaScript": "JavaScript es un lenguaje de programación ampliamente utilizado para el desarrollo web. Permite agregar interactividad a las páginas web, manipular el DOM, realizar peticiones asíncronas y trabajar con frameworks modernos como React o Vue. Es un lenguaje interpretado, dinámico y multiplataforma.",
+        "descriptionTypeScript": "TypeScript es un superset de JavaScript que añade tipado estático opcional. Desarrollado por Microsoft, ayuda a detectar errores durante el desarrollo y mejora la mantenibilidad del código. Es especialmente útil en proyectos grandes y se compila a JavaScript puro.",
+        "descriptionReact": "React es una biblioteca de JavaScript desarrollada por Facebook para construir interfaces de usuario interactivas y reutilizables. Utiliza un enfoque basado en componentes y un DOM virtual para optimizar el rendimiento. Es ampliamente utilizado en aplicaciones de una sola página (SPA).",
+        "descriptionVue": "Vue es un framework progresivo de JavaScript diseñado para ser adoptable y fácil de integrar en proyectos existentes. Ofrece un sistema de plantillas intuitivo, enlace de datos bidireccional y un ecosistema de herramientas como Vuex para la gestión del estado y Vue Router para el enrutamiento.",
+        "descriptionNestJS": "NestJS es un framework de Node.js inspirado en Angular, que permite construir aplicaciones backend escalables y eficientes. Utiliza TypeScript por defecto y ofrece una arquitectura modular, soporte para microservicios y una amplia gama de herramientas para el desarrollo de APIs robustas.",
+        "descriptionCSharp": "C# es un lenguaje de programación desarrollado por Microsoft, ampliamente utilizado en el desarrollo de aplicaciones de escritorio, web y móviles. Es parte del ecosistema .NET y se destaca por su sintaxis clara, orientación a objetos y soporte para programación asíncrona.",
+        "descriptionDotNet": ".NET es un framework de desarrollo de software creado por Microsoft. Soporta múltiples lenguajes como C#, F# y Visual Basic, y se utiliza para construir aplicaciones web, servicios, aplicaciones de escritorio y juegos. Es multiplataforma y ofrece un rendimiento optimizado.",
+        "descriptionBlazor": "Blazor es un framework de desarrollo web de Microsoft que permite construir aplicaciones interactivas usando C# en lugar de JavaScript. Puede ejecutarse en el servidor (Blazor Server) o en el cliente (Blazor WebAssembly), ofreciendo una alternativa moderna para el desarrollo frontend.",
+        "descriptionGit": "Git es un sistema de control de versiones distribuido ampliamente utilizado en el desarrollo de software. Permite a los desarrolladores rastrear cambios en el código, colaborar en equipo y gestionar ramas de manera eficiente. Es la base de plataformas como GitHub y GitLab.",
+        "descriptionGitHub": "GitHub es una plataforma de desarrollo colaborativo basada en Git. Ofrece herramientas para alojar repositorios de código, revisar cambios, gestionar proyectos y colaborar en equipo. Es ampliamente utilizado en la comunidad de código abierto y en proyectos privados.",
+        "descriptionPostman": "Postman es una herramienta popular para probar y documentar APIs. Permite enviar solicitudes HTTP, automatizar pruebas, simular respuestas y colaborar en equipo. Es esencial para desarrolladores que trabajan con servicios web y APIs RESTful.",
+        "descriptionSQLServer": "SQL Server es un sistema de gestión de bases de datos relacionales desarrollado por Microsoft. Ofrece un alto rendimiento, seguridad avanzada y herramientas para el análisis de datos. Es ampliamente utilizado en aplicaciones empresariales y entornos de bases de datos críticas."
     }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
 import { useTheme } from "next-themes"; // Importa useTheme de next-themes
@@ -29,9 +30,95 @@ const normalizeName = (name: string) => {
     return name.toLowerCase().replace(/\s+/g, ''); // Elimina espacios y convierte a minúsculas
 };
 
-// Componente para renderizar la forma activa
-const renderActiveShape = (props: any) => {
+interface CustomActiveShapePieChartProps {
+    languageName?: string;
+}
+
+export const CustomActiveShapePieChart: React.FC<CustomActiveShapePieChartProps> = ({ languageName }) => {
     const { theme } = useTheme();
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [data, setData] = useState<{ name: string; value: number }[]>([]);
+
+    useEffect(() => {
+        if (languageName) {
+            const normalizedLanguageName = normalizeName(languageName);
+
+            // Busca en dataLanguaje
+            const languageIndex = dataLanguaje.findIndex((item) =>
+                normalizeName(item.name).includes(normalizedLanguageName),
+            );
+            if (languageIndex !== -1) {
+                setData(dataLanguaje);
+                setActiveIndex(languageIndex);
+                return;
+            }
+
+            // Busca en dataWebFrameworksAndTechnologies
+            const frameworkIndex = dataWebFrameworksAndTechnologies.findIndex((item) =>
+                normalizeName(item.name).includes(normalizedLanguageName),
+            );
+            if (frameworkIndex !== -1) {
+                setData(dataWebFrameworksAndTechnologies);
+                setActiveIndex(frameworkIndex);
+                return;
+            }
+
+            // Busca en dataBase
+            const databaseIndex = dataBase.findIndex((item) =>
+                normalizeName(item.name).includes(normalizedLanguageName),
+            );
+            if (databaseIndex !== -1) {
+                setData(dataBase);
+                setActiveIndex(databaseIndex);
+                return;
+            }
+
+            // Si no se encuentra, se usa un conjunto de datos vacío
+            setData([]);
+        }
+    }, [languageName]);
+
+    const onPieEnter = (_: any, index: React.SetStateAction<number>) => {
+        setActiveIndex(index);
+    };
+
+    const textColor = theme === "dark" ? "#fff" : "#333";
+
+    return (
+        <>
+            <ResponsiveContainer width="100%" height={300}>
+                <PieChart>
+                    <Pie
+                        activeIndex={activeIndex}
+                        activeShape={(props: any) => renderActiveShape(props, textColor)}
+                        data={data}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={80}
+                        fill={textColor}
+                        dataKey="value"
+                        onMouseEnter={onPieEnter}
+                        stroke={theme === "dark" ? "#333" : "#fff"}
+                        strokeWidth={2}
+                    />
+                </PieChart>
+            </ResponsiveContainer>
+            {data.length > 0 && (
+                <a
+                    className="text-gray-900 dark:text-white"
+                    href="https://survey.stackoverflow.co/2024/technology/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Datos basados en el Stack Overflow Survey 2024 según popularidad
+                </a>
+            )}
+        </>
+    );
+};
+
+const renderActiveShape = (props: any, textColor: string) => {
     const RADIAN = Math.PI / 180;
     const {
         cx,
@@ -89,86 +176,15 @@ const renderActiveShape = (props: any) => {
                 x={ex + (cos >= 0 ? 1 : -1) * 12}
                 y={ey}
                 textAnchor={textAnchor}
-                fill="#333"
-            >{`${payload.name} ${value}`}
+                fill={textColor}
+            >
+                <tspan x={ex + (cos >= 0 ? 1 : -1) * 12} dy="-1.2em">  {/* Nombre arriba */}
+                    {`${payload.name}`}
+                </tspan>
+                <tspan x={ex + (cos >= 0 ? 1 : -1) * 12} dy="1.2em">   {/* Valor debajo */}
+                    {`${value}%`}
+                </tspan>
             </text>
         </g>
     );
 };
-
-// Componente principal del gráfico
-interface CustomActiveShapePieChartProps {
-    languageName?: string;
-}
-
-const CustomActiveShapePieChart: React.FC<CustomActiveShapePieChartProps> = ({ languageName }) => {
-    const { theme } = useTheme();
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [data, setData] = useState<{ name: string; value: number }[]>([]);
-
-    useEffect(() => {
-        if (languageName) {
-            const normalizedLanguageName = normalizeName(languageName);
-
-            // Busca en dataLanguaje
-            const languageIndex = dataLanguaje.findIndex((item) =>
-                normalizeName(item.name).includes(normalizedLanguageName),
-            );
-            if (languageIndex !== -1) {
-                setData(dataLanguaje);
-                setActiveIndex(languageIndex);
-                return;
-            }
-
-            // Busca en dataWebFrameworksAndTechnologies
-            const frameworkIndex = dataWebFrameworksAndTechnologies.findIndex((item) =>
-                normalizeName(item.name).includes(normalizedLanguageName),
-            );
-            if (frameworkIndex !== -1) {
-                setData(dataWebFrameworksAndTechnologies);
-                setActiveIndex(frameworkIndex);
-                return;
-            }
-
-            // Busca en dataBase
-            const databaseIndex = dataBase.findIndex((item) =>
-                normalizeName(item.name).includes(normalizedLanguageName),
-            );
-            if (databaseIndex !== -1) {
-                setData(dataBase);
-                setActiveIndex(databaseIndex);
-                return;
-            }
-
-            // Si no se encuentra, se usa un conjunto de datos vacío
-            setData([]);
-        }
-    }, [languageName]);
-
-    const onPieEnter = (_, index) => {
-        setActiveIndex(index);
-    };
-
-    const textColor = theme === "dark" ? "#fff" : "#333";
-
-    return (
-        <ResponsiveContainer width="100%" height={400}>
-            <PieChart>
-                <Pie
-                    activeIndex={activeIndex}
-                    activeShape={renderActiveShape}
-                    data={data}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={60}
-                    outerRadius={80}
-                    fill={textColor}
-                    dataKey="value"
-                    onMouseEnter={onPieEnter}
-                />
-            </PieChart>
-        </ResponsiveContainer>
-    );
-};
-
-export default CustomActiveShapePieChart;
