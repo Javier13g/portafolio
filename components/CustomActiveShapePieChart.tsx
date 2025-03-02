@@ -35,7 +35,7 @@ interface CustomActiveShapePieChartProps {
 }
 
 export const CustomActiveShapePieChart: React.FC<CustomActiveShapePieChartProps> = ({ languageName }) => {
-    const { theme } = useTheme();
+    const { resolvedTheme } = useTheme();
     const [activeIndex, setActiveIndex] = useState(0);
     const [data, setData] = useState<{ name: string; value: number }[]>([]);
 
@@ -82,7 +82,8 @@ export const CustomActiveShapePieChart: React.FC<CustomActiveShapePieChartProps>
         setActiveIndex(index);
     };
 
-    const textColor = theme === "dark" ? "#fff" : "#333";
+    const textColor = resolvedTheme === "dark" ? "#fff" : "#333";
+
 
     return (
         <>
@@ -99,7 +100,7 @@ export const CustomActiveShapePieChart: React.FC<CustomActiveShapePieChartProps>
                         fill={textColor}
                         dataKey="value"
                         onMouseEnter={onPieEnter}
-                        stroke={theme === "dark" ? "#333" : "#fff"}
+                        stroke={resolvedTheme === "dark" ? "#333" : "#fff"}
                         strokeWidth={2}
                     />
                 </PieChart>
