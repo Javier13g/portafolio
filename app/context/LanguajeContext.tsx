@@ -3,7 +3,7 @@ import translations from './translations.json';
 
 type Language = 'en' | 'es';
 
-interface Translations {
+export interface Translations {
     intro: string;
     description: string;
     itemHome: string;
@@ -23,6 +23,12 @@ interface Translations {
     descriptionGitHub: string;
     descriptionPostman: string;
     descriptionSQLServer: string;
+    projects: string;
+    technologies: string;
+    projectOne: string;
+    projectTwo: string;
+    titleProjectOne: string;
+    titleProjectTwo: string;
 }
 
 interface LanguageContextType {

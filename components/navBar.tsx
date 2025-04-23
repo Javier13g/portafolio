@@ -12,7 +12,7 @@ export default function Navbar({ className }: NavbarProps) {
   const { translate } = useLanguage();
   return (
     <header
-      className={`${className} fixed top-4 left-1/2 transform -translate-x-1/2 w-[calc(100%-16px)] max-w-3xl px-4 sm:px-6 bg-white dark:bg-black border border-gray-200 dark:border-white shadow-lg rounded-xl p-4`}
+      className={`${className} fixed top-4 left-1/2 transform -translate-x-1/2 w-[calc(100%-16px)] max-w-3xl px-4 sm:px-6 bg-white dark:bg-black border border-gray-200 dark:border-white shadow-lg rounded-xl p-4 z-20`}
     >
       <div className="flex items-center justify-between">
         {/* Logo */}

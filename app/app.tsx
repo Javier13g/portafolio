@@ -2,6 +2,7 @@
 import About from "./about/about";
 //import Contact from "./contact/contact";
 import { useLanguage } from "./context/LanguajeContext";
+import Projects from "./proyects/proyects";
 //import Projects from "./proyects/proyects";
 
 export default function App() {
@@ -16,8 +17,8 @@ export default function App() {
                 {translate('description')}
             </h2>
             <About />
-            {/* <Projects />
-            <Contact /> */}
+            <Projects />
+            {/*<Contact /> */}
         </main>
     );
 }

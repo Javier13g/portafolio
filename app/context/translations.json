@@ -18,7 +18,13 @@
         "descriptionGit": "Git is a widely-used distributed version control system for software development. It allows developers to track code changes, collaborate in teams, and manage branches efficiently. It is the foundation of platforms like GitHub and GitLab.",
         "descriptionGitHub": "GitHub is a collaborative development platform based on Git. It provides tools for hosting code repositories, reviewing changes, managing projects, and team collaboration. It is widely used in the open-source community and for private projects.",
         "descriptionPostman": "Postman is a popular tool for testing and documenting APIs. It allows sending HTTP requests, automating tests, simulating responses, and team collaboration. It is essential for developers working with web services and RESTful APIs.",
-        "descriptionSQLServer": "SQL Server is a relational database management system developed by Microsoft. It offers high performance, advanced security, and tools for data analysis. It is widely used in enterprise applications and critical database environments."
+        "descriptionSQLServer": "SQL Server is a relational database management system developed by Microsoft. It offers high performance, advanced security, and tools for data analysis. It is widely used in enterprise applications and critical database environments.",
+        "projects": "Projects",
+        "technologies": "Technologies",
+        "projectOne": "This web application allows the creation and management of transportation routes, facilitating trip planning from a point of origin to a destination, with the option of including multiple intermediate stops. Drivers are assigned directly to transportation guides, ensuring that each route has a dedicated driver.",
+        "projectTwo": "The main focus of this project was the creation of new modules and the ongoing maintenance of the company's internal system. Its functions included creating requests for employees to complete, generating performance reports, and a calendar to organize important tasks and events, all designed to improve the organization's efficiency and internal management.",
+        "titleProjectOne":"Transportation Guidance System (CCN)",
+        "titleProjectTwo":"CRM Tennos"
     },
     "es": {
         "itemHome": "Inicio",
@@ -39,6 +45,12 @@
         "descriptionGit": "Git es un sistema de control de versiones distribuido ampliamente utilizado en el desarrollo de software. Permite a los desarrolladores rastrear cambios en el código, colaborar en equipo y gestionar ramas de manera eficiente. Es la base de plataformas como GitHub y GitLab.",
         "descriptionGitHub": "GitHub es una plataforma de desarrollo colaborativo basada en Git. Ofrece herramientas para alojar repositorios de código, revisar cambios, gestionar proyectos y colaborar en equipo. Es ampliamente utilizado en la comunidad de código abierto y en proyectos privados.",
         "descriptionPostman": "Postman es una herramienta popular para probar y documentar APIs. Permite enviar solicitudes HTTP, automatizar pruebas, simular respuestas y colaborar en equipo. Es esencial para desarrolladores que trabajan con servicios web y APIs RESTful.",
-        "descriptionSQLServer": "SQL Server es un sistema de gestión de bases de datos relacionales desarrollado por Microsoft. Ofrece un alto rendimiento, seguridad avanzada y herramientas para el análisis de datos. Es ampliamente utilizado en aplicaciones empresariales y entornos de bases de datos críticas."
+        "descriptionSQLServer": "SQL Server es un sistema de gestión de bases de datos relacionales desarrollado por Microsoft. Ofrece un alto rendimiento, seguridad avanzada y herramientas para el análisis de datos. Es ampliamente utilizado en aplicaciones empresariales y entornos de bases de datos críticas.",
+        "projects": "Proyectos",
+        "technologies": "Tecnologías",
+        "projectOne": "Esta aplicación web permite la creación y gestión de rutas de transporte, facilitando la planificación de trayectos desde un punto de origen hasta un destino, con la opción de incluir varias paradas intermedias. Los choferes se asignan directamente a las guías de transporte, asegurando que cada ruta tenga un conductor asignado.",
+        "projectTwo": "El enfoque principal de este proyecto era la creación de nuevos módulos y el mantenimiento continuo del sistema interno de la empresa. Entre sus funciones se incluyen la creación de solicitudes que los empleados deben cumplir, la generación de reportes de desempeño y un calendario para organizar tareas y eventos importantes, todo diseñado para mejorar la eficiencia y gestión interna de la organización.",
+        "titleProjectOne":"Sistema de Guia de Transporte (CCN)",
+        "titleProjectTwo":"CRM Tennos"
     }
 }
