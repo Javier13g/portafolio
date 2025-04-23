@@ -17,7 +17,7 @@ export default function App() {
                 {translate('description')}
             </h2>
             <About />
-             <Projects />
+            <Projects />
             {/*<Contact /> */}
         </main>
     );
